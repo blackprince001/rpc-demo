@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package eatery;
+
+option go_package = "./eatery";
+
+service eartery {
+  rpc BuyGobe(MenuRequest) returns (MenuResponse) {}
+}
+
+message MenuRequest {
+  int32 plantain = 1;
+  int32 rice = 2;
+  int32 beans = 3;
+  bool vegetables = 4;
+}
+
+message MenuResponse {
+  string message = 1;
+}
