@@ -4,5 +4,5 @@ build:
 run-server:
 	go run server/main.go
 
-run-client: run-server
+run-client:
 	grpcui -plaintext localhost:50051
