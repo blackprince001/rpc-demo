@@ -33,8 +33,11 @@ func main() {
 	s := grpc.NewServer()
 	reflection.Register(s)
 
+	log.Println("Trying to serve on port 50051")
+
 	eatery.RegisterEarteryServer(s, &server{})
 	if err := s.Serve(listener); err != nil {
 		log.Fatalf("Failed to serve: %v", err)
 	}
+
 }
