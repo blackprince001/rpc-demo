@@ -16,12 +16,20 @@ type server struct {
 	eatery.UnimplementedEarteryServer
 }
 
-func (s *server) BuyGobe(ctx context.Context, in *eatery.MenuRequest) (*eatery.MenuResponse, error) {
+func (s *server) BuyGobe(
+	ctx context.Context, in *eatery.MenuRequest,
+) (*eatery.MenuResponse, error) {
 	total_cost := in.Beans + in.Plantain + in.Rice
 	if in.Vegetables {
-		return &eatery.MenuResponse{Message: fmt.Sprintf("Gobe Cost - %d. You bought Gobe with Veges!", total_cost)}, nil
+		return &eatery.MenuResponse{
+			Message: fmt.Sprintf(
+				"Gobe Cost - %d. You bought Gobe with Veges!", total_cost),
+		}, nil
 	}
-	return &eatery.MenuResponse{Message: fmt.Sprintf("Gobe Cost - %d. You bought Gobe without Veges!", total_cost)}, nil
+	return &eatery.MenuResponse{
+		Message: fmt.Sprintf(
+			"Gobe Cost - %d. You bought Gobe without Veges!", total_cost),
+	}, nil
 }
 
 func main() {
